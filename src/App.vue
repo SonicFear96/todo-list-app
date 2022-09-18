@@ -1,7 +1,18 @@
 <template>
-  <router-view/>
+  <vHeader/>
+  <div class="app">
+      <router-view/>
+  </div>
 </template>
 
+<script>
+import vHeader from '@/components/header'
+export default {
+  components: {
+    vHeader
+  }
+}
+</script>
 <style>
 * {
   vertical-align: baseline;
@@ -39,5 +50,14 @@ a {
 
 a img, :link img, :visited img {
   border: 0;
+}
+.wrapper {
+  padding: 0 40px;
+}
+.app {
+  margin-top: 100px;
+}
+.container {
+  padding: 0 90px;
 }
 </style>
