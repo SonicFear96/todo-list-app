@@ -35,6 +35,13 @@ html, body {
 
 button {
   font-family: initial;
+  background-color: blue;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 20px;
+  max-width: 300px;
+  border-radius: 8px;
 }
 
 img {

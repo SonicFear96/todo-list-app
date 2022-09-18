@@ -22,7 +22,9 @@ export default createStore({
       state.todoList.push(value)
     },
     CHANGE_POST (state, value) {
-      //
+      state.todoList.map(el => {
+        el.id === value.id ? el = value : el
+      })
     }
   },
   actions: {

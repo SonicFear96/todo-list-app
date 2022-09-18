@@ -1,13 +1,21 @@
 <template>
  <div class="card-component">
-    <div class="title">
+    <div v-if="showTitle" class="title">
         {{ data.title }}
+    </div>
+    <div v-else>
+      <input :value="data.title" @input="input">
     </div>
     <ul v-if="data.items.length" class="todo-list">
       <li class="todo-item" v-for="(item, index) in data.items" :key="index"> {{index + 1}} {{ item }} </li>
     </ul>
     <div class="todo-item--no" v-else>
       к сожалению, список дел ещё не заполнен
+    </div>
+    <div class="button-wrapper">
+      <button class="button" @click="changeData">
+        изменить 
+      </button>
     </div>
  </div>   
 </template>
@@ -19,6 +27,26 @@ export default {
     data: {
       type: Object,
       default: () => {}
+    }
+  },
+  data () {
+    return {
+      showTitle: true,
+      newTitle: ''
+    }
+  },
+  methods: {
+    changeData () {
+      if (this.showTitle) {
+        this.showTitle = false
+      } else {
+        this.data.title = this.newTitle
+        this.$store.dispatch('changePost', this.data)
+        this.showTitle = true
+      }
+    },
+    input () {
+      this.newTitle = event.target.value
     }
   }
 }
