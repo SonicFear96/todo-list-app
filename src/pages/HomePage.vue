@@ -14,26 +14,32 @@
 <script>
 import vCard from '@/components/card'
 import vForm from '@/components/form'
+import { mapState } from 'vuex'
 export default {
   name: 'Home-page',
   components: {
     vCard,
     vForm
   },
+  computed: {
+    ...mapState({
+      todoList: state => state.todoList
+    })
+  },
   data () {
     return {
-      todoList: [
-        {
-          id: 1,
-          title:'Съесть на завтрак',
-          items: ['яйцо', 'хлеб с маслом', 'яблоко']
-        },
-        {
-          id: 2,
-          title: 'Съесть на обед',
-          items: ['суп', 'макароны', 'кофе',]
-        }
-      ]
+      // todoList: [
+      //   {
+      //     id: 1,
+      //     title:'Съесть на завтрак',
+      //     items: ['яйцо', 'хлеб с маслом', 'яблоко']
+      //   },
+      //   {
+      //     id: 2,
+      //     title: 'Съесть на обед',
+      //     items: ['суп', 'макароны', 'кофе',]
+      //   }
+      // ]
     }
   },
   methods: {
@@ -43,7 +49,7 @@ export default {
         title: data,
         items: []
       }
-      this.todoList.push(post)
+      this.$store.dispatch('addPost', post)
     }
   }
 }
