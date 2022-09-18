@@ -15,6 +15,7 @@ cd dist
 git init
 git add -A
 git commit -m 'deploy'
+git push -f git@github.com:sonicFear96/todo-list-app.git master:gh-pages
 
 # если вы публикуете по адресу https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
