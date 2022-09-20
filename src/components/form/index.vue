@@ -25,8 +25,10 @@ export default {
       this.title = event.target.value
     },
     create () {
-      this.$emit('create', this.title)
-      this.title = ''
+      if (this.title !== '') {
+        this.$emit('create', this.title)
+        this.title = ''
+      }
     }
   }
 }
@@ -50,19 +52,5 @@ export default {
     padding: 10px;
     width: 100%;
     max-width: 300px;
-  }
-  .button {
-    background-color: blue;
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 10px 20px;
-    width: 100%;
-    max-width: 300px;
-    border-radius: 8px;
-  }
-  .button:hover {
-    opacity: 0.5;
-    cursor: pointer;
   }
 </style>
