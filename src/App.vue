@@ -67,4 +67,19 @@ a img, :link img, :visited img {
 .container {
   padding: 0 90px;
 }
+
+.button {
+  background-color: blue;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+}
+.button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
 </style>

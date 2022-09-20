@@ -57,7 +57,8 @@ export default {
       }
     },
     deletePost () {
-      this.$store.dispatch('deletePost', this.data)
+      this.$emit('deletePost', this.data)
+      // this.$store.dispatch('deletePost', this.data)
     },
     input () {
       this.newTitle = event.target.value

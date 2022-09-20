@@ -3,26 +3,23 @@
     <div class="modal-mask">
         <div class="modal-wrapper">
           <div class="modal-container">
-            <div class="modal-header">
+            <!-- <div class="modal-header">
               <slot name="header">
                 default header
               </slot>
-            </div>
+            </div> -->
             <div class="modal-body">
               <slot name="body">
-                default body
+                действительно удалить элемент?
               </slot>
             </div>
             <div class="modal-footer">
-              <slot name="footer">
-                default footer
-                <button class="modal-default-button" @click="$emit('close')">
+                <button class="button" @click="$emit('close')">
                   Отмена
                 </button>
-                <button class="modal-default-button" @click="$emit('delete')">
+                <button class="button" @click="$emit('delete')">
                   Удалить
                 </button>
-              </slot>
             </div>
           </div>
         </div>
@@ -71,6 +68,12 @@ export default {
 
 .modal-body {
   margin: 20px 0;
+}
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .modal-enter {

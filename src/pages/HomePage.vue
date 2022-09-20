@@ -2,25 +2,27 @@
   <div class="page home-page container">
     <vForm @create="createPost"/>
     <div class="data-list-wrapper">
-      <ul v-if="todoList.length" class="data-list">
+      <ul class="data-list">
         <li class="data-item" v-for="item in todoList" :key="item.id">
-          <vCard :data="item" />
+          <vCard :data="item" @deletePost="getShowModals"/>
         </li>
       </ul>
-      <div v-else class="data-item-none">Ещё не добавлены списки дел</div>
     </div>
+    <vModals v-if="showModals" @close="showModals = false" @delete="deletePost"/>
   </div>
 </template>
 
 <script>
 import vCard from '@/components/card'
 import vForm from '@/components/form'
+import vModals from '@/components/modals'
 import { mapState } from 'vuex'
 export default {
   name: 'Home-page',
   components: {
     vCard,
-    vForm
+    vForm,
+    vModals
   },
   computed: {
     ...mapState({
@@ -29,6 +31,8 @@ export default {
   },
   data () {
     return {
+      clickPost: null,
+      showModals: false
       // todoList: [
       //   {
       //     id: 1,
@@ -44,6 +48,15 @@ export default {
     }
   },
   methods: {
+    getShowModals (data) {
+      this.clickPost = data
+      this.showModals = true
+    },
+    deletePost () {
+      this.$store.dispatch('deletePost', this.clickPost)
+      this.clickPost = '',
+      this.showModals = false
+    },
     createPost (data) {
       const post = {
         id: Date.now(),
@@ -67,10 +80,5 @@ export default {
   }
   .data-item {
     width: calc(50% - 10px);
-  }
-  .data-item-none {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
   }
 </style>
