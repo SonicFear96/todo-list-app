@@ -1,6 +1,10 @@
 <template>
   <header class="header-component wrapper">
-    <div class="logo">TO DO LIST</div>
+    <div class="logo">
+      <router-link class="logo-link" to="/">
+        TO DO LIST
+      </router-link>
+    </div>
   </header>
 </template>
 
@@ -12,9 +16,12 @@ export default {
 
 <style scoped>
 .header-component {
-    background-color: blue;
-    color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  background-color: blue;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.logo-link:hover {
+  opacity: 0.5;
 }
 </style>

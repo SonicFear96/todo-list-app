@@ -5,13 +5,72 @@ export default createStore({
     todoList: [
       {
         id: 1,
-        title:'Съесть на завтрак',
-        items: ['яйцо', 'хлеб с маслом', 'яблоко']
+        title:'Дела в понедельник',
+        items: [
+          {
+            id: 1,
+            title: 'Проснуться',
+            isDone: true
+          },
+          {
+            id: 2,
+            title: 'Умыться',
+            isDone: true
+          },
+          {
+            id: 3,
+            title: 'Поехать на работу',
+            isDone: false
+          }
+        ]
       },
       {
         id: 2,
-        title: 'Съесть на обед',
-        items: ['суп', 'макароны', 'кофе',]
+        title: 'Дела на вторник',
+        items: [
+          {
+            id: 1,
+            title: 'Проснуться',
+            isDone: false
+          },
+          {
+            id: 2,
+            title: 'Умыться',
+            isDone: false
+          },
+          {
+            id: 3,
+            title: 'Поехать на работу',
+            isDone: false
+          },
+        ]
+      },
+      {
+        id: 3,
+        title: 'Дела на среду',
+        items: [
+          {
+            id: 1,
+            title: 'Помыться',
+            isDone: false
+          },
+          {
+            id: 2,
+            title: 'Тренировка',
+            isDone: false
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: 'Дела на четверг',
+        items: [
+          {
+            id: 1,
+            title: 'Готовить обед',
+            isDone: false
+          }
+        ]
       }
     ]
   },
