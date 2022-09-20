@@ -2,11 +2,12 @@
   <div class="page home-page container">
     <vForm @create="createPost"/>
     <div class="data-list-wrapper">
-      <ul class="data-list">
+      <ul v-if="todoList.length" class="data-list">
         <li class="data-item" v-for="item in todoList" :key="item.id">
           <vCard :data="item" />
         </li>
       </ul>
+      <div v-else class="data-item-none">Ещё не добавлены списки дел</div>
     </div>
   </div>
 </template>
@@ -66,5 +67,10 @@ export default {
   }
   .data-item {
     width: calc(50% - 10px);
+  }
+  .data-item-none {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
   }
 </style>

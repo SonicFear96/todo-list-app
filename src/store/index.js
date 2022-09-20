@@ -22,7 +22,13 @@ export default createStore({
       state.todoList.push(value)
     },
     CHANGE_POST (state, value) {
-      //
+      state.todoList.map(el => {
+        el.id === value.id ? el = value : el
+      })
+    },
+    DELETE_POST (state, value) {
+      state.todoList.filter(item => item.id !== value.id)
+      state.todoList = state.todoList.filter(item => item.id !== value.id)
     }
   },
   actions: {
@@ -31,7 +37,10 @@ export default createStore({
     },
     changePost ({ commit }, value) {
       commit('CHANGE_POST', value)
-    }
+    },
+    deletePost ({ commit }, value) {
+      commit('DELETE_POST', value)
+    },
   },
   modules: {
   }
