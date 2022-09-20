@@ -4,7 +4,7 @@
     <div class="data-list-wrapper">
       <ul class="data-list">
         <li class="data-item" v-for="item in todoList" :key="item.id">
-          <vCard :data="item" @deletePost="getShowModals"/>
+            <vCard :data="item" @deletePost="showModals"/>
         </li>
       </ul>
     </div>
@@ -33,22 +33,10 @@ export default {
     return {
       clickPost: null,
       showModals: false
-      // todoList: [
-      //   {
-      //     id: 1,
-      //     title:'Съесть на завтрак',
-      //     items: ['яйцо', 'хлеб с маслом', 'яблоко']
-      //   },
-      //   {
-      //     id: 2,
-      //     title: 'Съесть на обед',
-      //     items: ['суп', 'макароны', 'кофе',]
-      //   }
-      // ]
     }
   },
   methods: {
-    getShowModals (data) {
+    showModals (data) {
       this.clickPost = data
       this.showModals = true
     },

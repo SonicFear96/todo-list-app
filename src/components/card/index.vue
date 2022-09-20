@@ -1,7 +1,9 @@
 <template>
  <div class="card-component">
     <div v-if="showTitle" class="title">
+      <router-link :to="`/${data.id}`">
         {{ data.title }}
+      </router-link>
     </div>
     <div v-else class="input-wrapper">
       <input class="card-input" :value="data.title" @input="input"> 
@@ -10,7 +12,8 @@
       </button>
     </div>
     <ul v-if="data.items.length" class="todo-list">
-      <li class="todo-item" v-for="(item, index) in data.items" :key="index"> {{index + 1}} {{ item }} </li>
+      <li class="todo-item" v-for="(item, index) in data.items.slice(0, 2)" :key="index"> {{index + 1}} {{ item.title }} </li>
+      <li class="todo-item">...</li>
     </ul>
     <div class="todo-item--no" v-else>
       к сожалению, список дел ещё не заполнен
@@ -73,11 +76,16 @@ export default {
   border: 1px solid lightgray;
   padding: 20px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .title {
     height: 40px;
     font-size: 24px;
     font-weight: bold;
+}
+.title:hover {
+  opacity: 0.5;
 }
 .card-input {
   height: 28px;
@@ -110,6 +118,6 @@ export default {
   display: flex;
   flex-direction: row;
   gap: 40px;
-  margin-top: 20px;
+  margin-top: auto;
 }
 </style>
